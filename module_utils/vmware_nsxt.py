@@ -31,10 +31,10 @@ def request(url, data=None, headers=None, method='GET', use_proxy=True,
                      url_username=url_username, url_password=url_password, http_agent=http_agent,
                      force_basic_auth=force_basic_auth)
     except HTTPError as err:
-        r = err.fp
+        r = err
 
     try:
-        raw_data = r.read()
+        raw_data = r.fp.read()
         if raw_data:
             data = json.loads(raw_data)
         else:
