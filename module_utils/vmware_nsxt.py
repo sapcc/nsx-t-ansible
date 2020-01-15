@@ -36,7 +36,7 @@ def request(url, data=None, headers=None, method='GET', use_proxy=True,
     try:
         raw_data = r.fp.read()
         if raw_data:
-            data = json.loads(raw_data)
+            data = json.loads(raw_data.decode('utf-8'))
         else:
             raw_data = None
     except:
