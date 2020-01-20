@@ -34,7 +34,7 @@ def request(url, data=None, headers=None, method='GET', use_proxy=True,
         r = err
 
     try:
-        raw_data = r.fp.read()
+        raw_data = r.read()
         if raw_data:
             data = json.loads(raw_data)
         else:
