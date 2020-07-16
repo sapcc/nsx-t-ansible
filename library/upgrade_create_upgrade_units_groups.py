@@ -18,7 +18,30 @@ ANSIBLE_METADATA = {'metadata_version': '1.1',
                     'supported_by': 'community'}
 
 DOCUMENTATION = '''
-author: Aleksey Nishev
+module: upgrade_create_upgrade_units_groups
+short_description: Add extra Firewall rule like DHCP rule
+version_added: 1.0
+author: "Aleksey Nishev, VMware Inc"
+contributor: ["Santanu Das, SAP SE"]
+
+
+options:
+    hostname:
+            description:
+                - cluster ip of nsxt controllers
+            required: True
+    username:
+            description:
+                - login user name
+            required: True
+    password:
+            description:
+                - user password
+            required: True
+    validate_certs:
+            description:
+                - Accept invalid certificates
+            required: True
 '''
 
 EXAMPLES = '''
@@ -79,7 +102,7 @@ def main():
     request_data_dict["upgrade_units"] = esx_ids
     extended_configuration = dict()
     extended_configuration["key"] = "upgrade_mode"
-    extended_configuration["value"] = "in_place"
+    extended_configuration["value"] = "maintenance"
     request_data_dict["extended_configuration"] = list()
     request_data_dict["extended_configuration"].append(extended_configuration)
     request_data = json.dumps(request_data_dict)
