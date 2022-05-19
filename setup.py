@@ -8,7 +8,9 @@ import glob
 from setuptools import setup
 
 ansible_path = "{}/site-packages/ansible".format(os.path.dirname(os.__file__))
+
 ansible_rel_path = os.path.relpath(ansible_path, sys.prefix)
+ansible_rel_path = "lib/python3.8/site-packages/ansible"
 
 nsxt_modules = glob.glob('library/*.py')
 nsxt_module_utils = glob.glob('module_utils/*.py')
