@@ -36,5 +36,6 @@ setup(name='ansible-nsxt-modules',
         'License :: OSI Approved :: BSD License',
         'License :: OSI Approved :: GNU General Public License v3 (GPLv3)'
         'Programming Language :: Python',
-      ]
+      ],
+      py_modules=[]
       )
